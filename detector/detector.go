@@ -149,17 +149,14 @@ func scanBlocks(targets chan scanTarget, emptyBlocks chan *Block, out chan *Bloc
 		fmt.Printf("[scan] Starting new target: %s\n", target.Describe())
 		totalBytes, err := target.Size()
 		if err != nil {
-			fmt.Printf("[scan] Unable to scan target: %s\n", err.Error())
 			goto nextTarget
 		}
 
 		if f, err = target.Open(); err != nil {
-			fmt.Printf("[scan] Unable to scan target: %s\n", err.Error())
 			goto nextTarget
 		}
 
 		if _, err = f.Seek(target.StartOffset(), 0); err != nil {
-			fmt.Printf("[scan] Unable to scan target: %s\n", err.Error())
 			goto nextTarget
 		}
 
