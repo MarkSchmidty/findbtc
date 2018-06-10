@@ -178,7 +178,6 @@ func scanBlocks(targets chan scanTarget, emptyBlocks chan *Block, out chan *Bloc
 					goto nextTarget
 				}
 			} else if err != nil {
-				fmt.Printf("[scan] Unable to scan target: %s\n", err.Error())
 				emptyBlocks <- block
 				goto nextTarget
 			}
